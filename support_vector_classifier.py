@@ -4,11 +4,11 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 #read data .csv file
-df = pd.read_csv('data.csv')
+df = pd.read_csv('breast_cancer.csv')
 df.head()
 
 #pre-processing
-df.drop(['id', 'Unnamed: 32'], axis = 1, inplace = True)
+df.drop(['id'], axis = 1, inplace = True)
 df['diagnosis'] = df['diagnosis'].apply(lambda val: 1 if val == 'M' else 0)
 df.head()
 
@@ -16,9 +16,9 @@ df.head()
 df.isna().sum()
 
 #correlation between features
-plt.figure(figsize = (20, 12))
+plt.figure(figsize = (10, 10))
 corr = df.corr()
-sns.heatmap(corr, linewidths = 1, annot = True, fmt = ".2f")
+sns.heatmap(corr, linewidths = 1, annot = True)
 plt.show()
 
 # removing highly correlated features
