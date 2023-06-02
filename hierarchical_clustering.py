@@ -9,7 +9,7 @@ data.head()
 data = data.drop(["id"], axis=1)
 data = data.drop(["diagnosis"], axis=1)
 
-#cluster dendrogram
+#dendrogram
 from scipy.cluster.hierarchy import linkage, dendrogram, fcluster
 from scipy.spatial.distance import squareform
 plt.figure(figsize=(12,5))
