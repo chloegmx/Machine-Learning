@@ -4,7 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 #read data .csv file
-df = pd.read_csv('breast_cancer.csv')
+df = pd.read_csv('heart-disease.csv')
 df.head()
 
 #pre-processing
@@ -25,9 +25,9 @@ plt.show()
 corr_matrix = df.corr().abs() 
 mask = np.triu(np.ones_like(corr_matrix, dtype = bool))
 tri_df = corr_matrix.mask(mask)
-to_drop = [x for x in tri_df.columns if any(tri_df[x] > 0.92)]
+to_drop = [x for x in tri_df.columns if any(tri_df[x] > 0.75)]
 df = df.drop(to_drop, axis = 1)
-print(f"The reduced dataframe has {df.shape[1]} columns.")
+print({df.shape[1]})
 
 #test-train split
 X = df.drop('diagnosis', axis = 1)
