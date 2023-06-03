@@ -14,11 +14,11 @@ y = df['Sex']
 
 #test-train-fit
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=101)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=10)
 from sklearn.tree import DecisionTreeClassifier
-model = DecisionTreeClassifier()
-model.fit(X_train,y_train)
-y_pred = model.predict(X_test)
+tree = DecisionTreeClassifier()
+tree.fit(X_train,y_train)
+y_pred = tree.predict(X_test)
 
 #accuracy metrices
 from sklearn.metrics import confusion_matrix,classification_report
@@ -34,10 +34,10 @@ plt.xlabel('Predicted')
 plt.ylabel('Truth')
 
 #feature importance
-pd.DataFrame(index=X.columns,data=model.feature_importances_,columns=['Feature Importance'])
+pd.DataFrame(index=X.columns,data=tree.feature_importances_,columns=['Feature Importance'])
 
 #decision tree
 from sklearn.tree import plot_tree
 import matplotlib.pyplot as plt
 plt.figure(figsize=(20,12))
-plot_tree(model);
+plot_tree(tree);
