@@ -12,8 +12,6 @@ data = data.drop(["diagnosis"], axis=1)
 #dendrogram
 from scipy.cluster.hierarchy import linkage, dendrogram, fcluster
 from scipy.spatial.distance import squareform
-plt.figure(figsize=(12,5))
 dissimilarity = 1 - abs(correlations)
 Z = linkage(squareform(dissimilarity), 'complete')
-dendrogram(Z, labels=data.columns, orientation='top', 
-           leaf_rotation=90);
+dendrogram(Z, labels=data.columns, orientation='top');
