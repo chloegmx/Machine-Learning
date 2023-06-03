@@ -3,7 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('diabetes.csv')
+df = pd.read_csv('breast-cancer.csv')
 df.head()
 
 x = df.drop('Outcome',axis=1)
